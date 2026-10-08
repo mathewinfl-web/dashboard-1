@@ -26,7 +26,6 @@
             width: 100vw;
         }
 
-        /* Full Screen Slide Management */
         .slide-container {
             position: relative;
             width: 100%;
@@ -90,7 +89,7 @@
         .stock-symbol { font-size: 1.4rem; font-weight: bold; }
         .stock-price { font-size: 1.6rem; font-weight: bold; font-family: monospace; margin-top: 10px; }
 
-        /* --- SLIDE 2: PANTHERS ANALYSIS BOARD --- */
+        /* --- SLIDE 2: PANTHERS METRICS --- */
         .panthers-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -162,7 +161,21 @@
         .nhl-table th { color: var(--text-muted); font-size: 0.75rem; text-transform: uppercase; }
         .active-row { background-color: rgba(200, 16, 46, 0.15); font-weight: bold; }
 
-        /* Progress Bar (Bottom) */
+        /* --- SLIDE 4: UTILITY CALENDAR --- */
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        @media (min-width: 600px) {
+            .calendar-grid { grid-template-columns: 1fr 1fr; }
+        }
+        .cal-box { background-color: var(--card-bg); border-radius: 14px; padding: 25px; box-shadow: 0 8px 20px rgba(0,0,0,0.4); }
+        .cal-item { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+
         .rotation-progress-bar {
             position: absolute;
             bottom: 0;
@@ -209,11 +222,10 @@
         <div class="slide" id="slide-panthers">
             <h2 class="slide-title">Florida Panthers Race Tracker</h2>
             <div class="panthers-grid">
-                <!-- Row 1 Items -->
                 <div class="stat-box highlight">
                     <div class="stat-label">Current Points</div>
                     <div class="stat-value" id="panthers-pts">--</div>
-                    <div class="stat-subtext" id="panthers-record">0-0-0</div>
+                    <div class="stat-subtext" id="panthers-record">-- - -- - --</div>
                 </div>
                 <div class="stat-box">
                     <div class="stat-label">Division Rank</div>
@@ -225,21 +237,20 @@
                     <div class="stat-value" id="panthers-conf-rank">--</div>
                     <div class="stat-subtext">Eastern Conference</div>
                 </div>
-                <!-- Row 2 Items -->
                 <div class="stat-box">
                     <div class="stat-label">Division Leader</div>
                     <div class="stat-value" id="div-leader-pts" style="font-size:1.6rem; margin-top:12px;">--</div>
-                    <div class="stat-subtext" id="div-leader-team">Loading Team...</div>
+                    <div class="stat-subtext" id="div-leader-team">Loading...</div>
                 </div>
                 <div class="stat-box">
                     <div class="stat-label">Conference Leader</div>
                     <div class="stat-value" id="conf-leader-pts" style="font-size:1.6rem; margin-top:12px;">--</div>
-                    <div class="stat-subtext" id="conf-leader-team">Loading Team...</div>
+                    <div class="stat-subtext" id="conf-leader-team">Loading...</div>
                 </div>
                 <div class="stat-box highlight">
                     <div class="stat-label">Playoff Cutoff Line</div>
                     <div class="stat-value" id="cutoff-pts" style="color: var(--accent-green)">--</div>
-                    <div class="stat-subtext" id="cutoff-team">Wildcard 2 Threshold</div>
+                    <div class="stat-subtext" id="cutoff-team">Wildcard 2 Line</div>
                 </div>
             </div>
         </div>
@@ -248,15 +259,8 @@
         <div class="slide" id="slide-scores">
             <h2 class="slide-title">League Arena Overview</h2>
             <div class="nhl-layout">
-                <!-- Scores Monitor -->
                 <div class="live-games-panel">
                     <h3 style="margin-top:0; font-size:1rem; letter-spacing:1px;">TODAY'S GAMES</h3>
                     <div id="live-scores-container">
-                        <div class="mini-score-row">
-                            <span>Florida Panthers <br> Boston Bruins</span>
-                            <span style="text-align:right; font-family:monospace; font-weight:bold;">3 <br> 2 <span class="game-badge">FINAL</span></span>
-                        </div>
-                        <div class="mini-score-row">
-                            <span>NY Rangers <br> Tampa Bay</span>
-                            <span style="text-align:right; font-family:monospace; font-weight:bold;">1 <br> 4 <span class="game-badge" style="background:#475569">2ND</span></span>
-  
+                        <div style="color:var(--text-muted); text-align:center; padding: 20px 0;">No active games scheduled at this moment.</div>
+                    </div>
